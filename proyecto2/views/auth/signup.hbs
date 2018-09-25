@@ -12,5 +12,12 @@
     <label for='password'>Password</label>
     <input id='password' name='password' type='password' placeholder='Winter is Coming'>
   </p>
+    <label for='company'>Company</label>
+    <select name="company_id" id="company">
+      {{#each companies}}
+      <option value="companyName">{{this.companyName}}</option>
+      {{/each}}
+    </select>
 	<input type='submit' value='SignUp'>
 </form>
+

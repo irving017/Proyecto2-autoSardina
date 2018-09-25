@@ -1,26 +1,74 @@
 const router = require('express').Router()
 const User = require('../models/User')
 const sendMail = require('../helpers/mailer').sendMail
+const Company = require('../models/Company')
+const jwt = require('jsonwebtoken')
+const passport = require('passport')
 
-router.get('/signup',(req,res,next)=>{
-  res.render('auth/signup')
-})
-
-router.post('/signup',(req,res,next)=>{
-  User.register(req.body,req.body.password)
-  .then(user=>{ 
-    sendMail(req.body.email,`Gracias por tu aportación`)
-    res.redirect('/signup')
+router.get('/signup/users',(req,res,next)=>{
+  Company.find()
+  .then(companies=>{
+    res.render('auth/signalot',{companies})  
   })
   .catch(e=>next(e))
 })
+
+router.post('/signup/users',(req,res,next)=>{
+  const x = req.body.info.split(',')
+  console.log(req.body)
+  Company.findOne({companyName:req.body.companyName})
+  .then(company=>{
+    x.forEach(element => {
+      let contraseña = element[0]+element[1]+element[2]+(Math.floor(Math.random()*1000))
+      User.register({email:element,companyName:company.companyName,companyId:company._id},contraseña)
+      .then(user =>{
+        sendMail(element,`Bienvenido a AutoSardina.com`, `Bienvenido ${user.email} ,
+        <p>Agradecemos tu preferencia, tu contraseña inicial es <b>${contraseña}</b>, Loggeate
+        y empieza a disfrutar del verdadero transporte rapido, seguro y barato</p>
+        <h3><a href="http://localhost:3000/login">Dale click aqui para loggearte a tu pagina</a></h3>`)
+      })
+    })
+    res.redirect('/signup/users')
+  })
+})
+
+// router.get('/signup',(req,res,next)=>{
+//   Company.find()
+//   .then(companies=>{
+//     console.log(companies)
+//     res.render('auth/signup',{companies})  
+//   })
+//   .catch(e=>next(e))
+  
+// })
+
+// router.post('/signup',(req,res,next)=>{
+//   User.register(req.body,req.body.password)
+//   .then(user=>{ 
+//     sendMail(req.body.email,`Gracias por tu aportación`)
+//     res.redirect('/signup')
+//   })
+//   .catch(e=>next(e))
+// })
 
 router.get('/login',(req,res,next)=>{
   res.render('auth/login')
 })
 
-router.post('/login',(req,res,next)=>{
-  res.redirect('/')
+router.post('/login',passport.authenticate('local'),(req,res,next)=>{
+  res.redirect(`/profile/company/${req.user.companyId}`)
+})
+
+router.get('/signup/company',(req,res,next)=>{
+  res.render('auth/signupCompany')
+})
+
+router.post('/signup/company',(req,res,next)=>{
+  Company.create(req.body)
+  .then(company=>{ 
+    res.redirect('/signup/company')
+  })
+  .catch(e=>next(e))
 })
 
 

@@ -1,0 +1,13 @@
+<h2>Sign Up</h2>
+<form action="/signup/users" method="POST">	
+  <p>Mails</p>
+  <textarea name="info" id="info" cols="30" rows="10"></textarea>
+  <p>
+  <select name="companyName" id="company">
+    {{#each companies}}
+    <option value={{this.companyName}}>{{this.companyName}}</option>
+    {{/each}}
+  </select>
+  </p>
+  <p><input type='submit' value='SignUp'></p>
+</form>
