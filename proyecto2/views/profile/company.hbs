@@ -1,3 +1,4 @@
+<body>
 <h2>{{companyName}}</h2>
 <p><a href="/profile/user/{{_id}}">Usuario</a></p>
 
@@ -5,11 +6,12 @@
 Dirección:
 <input type="text" name="address" id="address">
 Horario: 
-<input type="text" name="horario" id="horario">
+<input type="time" name="horario" id="horario">
 </p>
 <div id="map"></div>
 
 <h3>Rutas disponibles</h3>
+</body>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIstIL_VA1Z_tPaYLKg2CvMG1sz6V0ywY&libraries=places"></script>
 <script>
   let lati = 19.39776549999999

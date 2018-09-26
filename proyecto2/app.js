@@ -29,7 +29,8 @@ const app = express();
 app.use(session({
   secret:'admin',
   resave:true,
-  saveUninitialized:true
+  saveUninitialized:true,
+  expires: new Date(Date.now()+(30*86400*100))
 }));
 
 app.use(passport.initialize());

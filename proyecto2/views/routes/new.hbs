@@ -3,4 +3,28 @@ Salida:
 <input type="text" name="address" id="address">
 Destino: 
 <input type="text" name="horario" id="address">
-</p>
+</p> 
+
+<script>
+{
+  origin: 'Chicago, IL',
+  destination: 'Los Angeles, CA',
+  waypoints: [
+    {
+      location: 'Joplin, MO',
+      stopover: false
+    },{
+      location: 'Oklahoma City, OK',
+      stopover: true
+    }],
+  provideRouteAlternatives: false,
+  travelMode: 'DRIVING',
+  drivingOptions: {
+    departureTime: new Date(now),
+    trafficModel: 'pessimistic'
+  },
+  unitSystem: google.maps.UnitSystem.IMPERIAL
+}
+
+
+</script>
