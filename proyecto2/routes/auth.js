@@ -15,13 +15,15 @@ router.get('/signup/users',(req,res,next)=>{
 
 router.post('/signup/users',(req,res,next)=>{
   const x = req.body.info.split(',')
-  console.log(req.body)
   Company.findOne({companyName:req.body.companyName})
   .then(company=>{
     x.forEach(element => {
       let contraseña = element[0]+element[1]+element[2]+(Math.floor(Math.random()*1000))
       User.register({email:element,companyName:company.companyName,companyId:company._id},contraseña)
       .then(user =>{
+        Company.findByIdAndUpdate(company._id,{$push:{users:user._id}})
+        .then(company=>console.log(company))
+        .catch(e=>next(e))
         sendMail(element,`Bienvenido a AutoSardina.com`, `Bienvenido ${user.email} ,
         <p>Agradecemos tu preferencia, tu contraseña inicial es <b>${contraseña}</b>, Loggeate
         y empieza a disfrutar del verdadero transporte rapido, seguro y barato</p>
@@ -56,6 +58,7 @@ router.get('/login',(req,res,next)=>{
 })
 
 router.post('/login',passport.authenticate('local'),(req,res,next)=>{
+  //console.log(req.user)
   res.redirect(`/profile/company/${req.user.companyId}`)
 })
 

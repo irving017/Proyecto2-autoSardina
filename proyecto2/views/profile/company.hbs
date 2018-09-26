@@ -1,1 +1,40 @@
-<h3>Empresa</h3>
+<h2>{{companyName}}</h2>
+<p><a href="/profile/user/{{_id}}">Usuario</a></p>
+
+<p>
+Dirección:
+<input type="text" name="address" id="address">
+Horario: 
+<input type="text" name="horario" id="horario">
+</p>
+<div id="map"></div>
+
+<h3>Rutas disponibles</h3>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIstIL_VA1Z_tPaYLKg2CvMG1sz6V0ywY&libraries=places"></script>
+<script>
+  let lati = 19.39776549999999
+  let lng = -99.1713954
+  const map = document.getElementById('map')
+  function initMap(lati,lngi) {
+    mapa = new google.maps.Map(map, {
+    center:{lat:lati,lng:lngi},
+    zoom:17
+    })
+    const marker = new google.maps.Marker({
+      position:{lat:lati,lng:lngi},
+      map:mapa
+    })   
+  }
+  const input = document.getElementById('address')
+  function autoComplete(ainput){
+    const dropdown = new google.maps.places.Autocomplete(ainput)
+    dropdown.addListener('place_changed',()=>{
+      const place = dropdown.getPlace()
+      lati = place.geometry.location.lat()
+      lng = place.geometry.location.lng()   
+      initMap(lati,lng)
+    })
+  }
+  initMap(lati,lng)
+  autoComplete(input)
+</script>

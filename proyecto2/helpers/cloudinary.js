@@ -11,7 +11,7 @@ cloudinary.config({
 var storage = cloudinaryStorage({
   cloudinary,
   folder: 'profile-pictures', // The name of the folder in cloudinary
-  allowedFormats: ['jpg', 'png'],
+  allowedFormats: ['jpg', 'png','jpeg','gif','pdf'],
   filename:(req, file, cb)=>{
     cb(null, file.originalname); // The file on cloudinary would have the same name as the original file name
   }

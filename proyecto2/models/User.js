@@ -4,11 +4,42 @@ const PLM = require('passport-local-mongoose')
 
 const userSchema = new Schema({
   email: String,
-  username: String,
-  companyName:String,
+  username: {
+    type:String,
+    required:true,
+    default:'Hola'
+  },
+  completeName:String,
+  age:Number,
+  companyName:{
+    type:String,
+    required:true
+  },
   companyId:{
     type:Schema.Types.ObjectId,
-    ref:'User'
+    ref:'Company'
+  },
+  photoURL:{
+    type:String,
+    default:'https://static.npmjs.com/c9e19250d48d66f0e9c70c9b3991bbdb.png'
+  },
+  routes:{
+    type:Schema.Types.ObjectId,
+    ref:'Routes'
+  },
+  preferences:{
+    music:String,
+    smoke:{
+      type:String,
+      enum:['Si','No']
+    },
+    descripcion:String
+  },
+  rating:{
+    type:Number,
+    min:1,
+    max:5,
+    default:1
   }
 })
 

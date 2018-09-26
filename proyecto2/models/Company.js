@@ -24,6 +24,10 @@ const companySchema = new Schema({
   users:[{
     type:Schema.Types.ObjectId,
     ref:'User'
+  }],
+  routes:[{
+    type:Schema.Types.ObjectId,
+    ref:'Route'
   }]
 })
 

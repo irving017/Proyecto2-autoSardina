@@ -1,0 +1,31 @@
+<div id="section1">
+<img src="{{photoURL}}" alt="Imagen de perfil" id="img-perfil">
+<h2>{{username}}</h2>
+<p id="rating">Rating {{rating}}</p> 
+
+{{!-- <input max="5" type="number" name="number" id="grade">
+<button type="submit">Calificar</button> --}}
+</div>
+<div id="section2">
+  <h4>Info General</h4>
+  <p>Nombre completo:{{completeName}}</p>
+  <p>Edad: {{Age}}</p>
+  <p>Gusto musical: {{preferences.music}}</p>
+  <p>Fumas: {{preferences.smoke}}</p>
+  <p>Fumas: {{preferences.descripcion}}</p>
+</div>
+<div id="section3">
+  <h4>Rutas</h4>
+  <p><a href="/profile/route/new">Crear una ruta</a></p>
+</div>
+
+{{!-- <script>
+  let rating = document.getElementById('rating')
+  const boton = document.getElementsByTagName('button')
+  const input = document.getElementById('grade')
+
+  boton[0].addEventListener('click',()=>{
+    console.log(input.value)
+    
+  })
+</script> --}}
