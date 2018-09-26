@@ -5,9 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
+  {{!-- cargo bulma y bootstrap por si se ocupa 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">--}}
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
+  <nav>
+  <h1>AUTO SARDINA</h1>
+  {{!-- <a href="/signup">SignUp</a> --}}
+  <div class="div-nav">
+    <a href="/login">LogIn</a>
+    <a href="/">Home</a>
+  </div>
+  
+</nav>
 
   {{{body}}}
 
