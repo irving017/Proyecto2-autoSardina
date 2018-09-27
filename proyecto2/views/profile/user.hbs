@@ -3,7 +3,7 @@
 <img src="{{photoURL}}" alt="Imagen de perfil" id="img-perfil">
 <h2>{{username}}</h2>
 <p id="rating">Rating {{rating}}</p> 
-
+<a href="/profile/company/{{companyId}}" ><button class="btn btn-primary">Home empresa</button></a>
 {{!-- <input max="5" type="number" name="number" id="grade">
 <button type="submit">Calificar</button> --}}
 </div>
@@ -29,7 +29,7 @@
         {{this.start.address}}</p>
         <p><strong>Destino:</strong> {{this.destiny.address}}</p>
         <p><strong>Horario:</strong> {{this.time}}</p>
-        <a href=""><button class="btn btn-primary">Ver Ruta</button></a>
+        <a href="/profile/route/delete/{{this._id}}"><button class="btn btn-primary">Borrar</button></a>
       </div>
     </div>
   </div>

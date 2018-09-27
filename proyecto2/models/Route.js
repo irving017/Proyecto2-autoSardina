@@ -32,7 +32,11 @@ const routeSchema = new Schema({
   },
   time:String,
   seats:Number,
-  TE:Number
+  TE:Number,
+  passenger:[{
+    type:Schema.Types.ObjectId,
+    ref:'User'
+  }]
 })
 
 module.exports = mongoose.model('Route',routeSchema)
