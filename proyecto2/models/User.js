@@ -23,10 +23,10 @@ const userSchema = new Schema({
     type:String,
     default:'https://static.npmjs.com/c9e19250d48d66f0e9c70c9b3991bbdb.png'
   },
-  routes:{
+  routes:[{
     type:Schema.Types.ObjectId,
-    ref:'Routes'
-  },
+    ref:'Route'
+  }],
   preferences:{
     music:String,
     smoke:{
