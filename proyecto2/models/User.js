@@ -40,6 +40,10 @@ const userSchema = new Schema({
     min:1,
     max:5,
     default:1
+  },
+  car:{
+    type:String,
+    enum:['Si','No']
   }
 })
 

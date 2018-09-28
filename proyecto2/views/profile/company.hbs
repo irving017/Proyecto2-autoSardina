@@ -191,7 +191,7 @@ h3{
       {{this.start.address}}</p>
       <p><strong>Destino:</strong> {{this.destiny.address}}</p>
       <p><strong>Horario:</strong> {{this.time}}</p>
-      <a href=""><button class="btn btn-primary">Ver Ruta</button></a>
+      <a href="/profile/route/detail/{{this._id}}"><button class="btn btn-primary">Ver Ruta</button></a>
     </div>
     </div>
     </div  >
@@ -209,11 +209,13 @@ h3{
   function initMap(lati,lngi) {
     mapa = new google.maps.Map(map, {
     center:{lat:lati,lng:lngi},
-    zoom:17
+    zoom:14
     })
-    createMarkers(20,-100)
-    createMarkers(25,-102)
-    createMarkers(lati,lng) 
+    
+    {{#each company.routes}}
+      createMarkers({{this.start.coordinates.[1]}},{{this.start.coordinates.[0]}})
+    {{/each}}
+    createMarker(lati,lng) 
     }
 
   function autoComplete(ainput){
@@ -225,11 +227,28 @@ h3{
       initMap(lati,lng)
     })
   }
+  var image = {
+    url: "/img/carrito.png",
+    scaledSize:new google.maps.Size (50,50)
+  }
+    var image2 = {
+    url: "/img/persona.png",
+    scaledSize:new google.maps.Size (50,50)
+  }
+  function createMarker(x,y){
+    let markere = new google.maps.Marker({
+      position:{lat:x, lng:y},
+      map:mapa,
+      title:"{{user.username}}",
+      icon:image2
+    })
+  }
   function createMarkers(x,y){
     let markere = new google.maps.Marker({
       position:{lat:x, lng:y},
       map:mapa,
-      title:"{{user.username}}"
+      title:"{{user.username}}",
+      icon:image
     })
   }
   initMap(lati,lng)

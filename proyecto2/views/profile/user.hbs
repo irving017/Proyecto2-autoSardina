@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 <style>
 
 .fotoPerfil img{
@@ -56,6 +57,12 @@ font-size: 30px;
    
 
 
+=======
+<div id="section1">
+<img src="{{photoURL}}" alt="Imagen de perfil" id="img-perfil">
+<h2>{{username}}</h2>
+<a href="/profile/company/{{companyId}}" ><button class="btn btn-primary">Home empresa</button></a>
+>>>>>>> f54a00fb45a7680f75e4d3e325211820bf7f2f7e
 {{!-- <input max="5" type="number" name="number" id="grade">
 <button type="submit">Calificar</button> --}}
 </section>
@@ -64,11 +71,16 @@ font-size: 30px;
   <h4>Info General</h4>
   <br>
   <p>Nombre completo:{{completeName}}</p>
-  <p>Edad: {{Age}}</p>
+  <p>Tu Edad: {{age}}</p>
   <p>Gusto musical: {{preferences.music}}</p>
-  <p>Fumas: {{preferences.smoke}}</p>
+  <p>¿Tienes Auto?: {{car}}</p>
+  <p>¿Pueden Fumar en tu auto?: {{preferences.smoke}}</p>
   <p>Descripción: {{preferences.descripcion}}</p>
+<<<<<<< HEAD
   </div>
+=======
+  <a href="/profile/user/editar/{{_id}}"><button class="btn btn-primary">Editar Perfil</button></a>
+>>>>>>> f54a00fb45a7680f75e4d3e325211820bf7f2f7e
 </div>
 <div id="section3">
    <center><h4>Tus viajes</h4></center>
@@ -90,14 +102,3 @@ font-size: 30px;
   </div>
   {{/each}}
 </div>
-
-{{!-- <script>
-  let rating = document.getElementById('rating')
-  const boton = document.getElementsByTagName('button')
-  const input = document.getElementById('grade')
-
-  boton[0].addEventListener('click',()=>{
-    console.log(input.value)
-    
-  })
-</script> --}}
