@@ -1,22 +1,90 @@
-<h2>Detalle del viaje!</h2>
-<h3>{{ruta.user.username}}</h3>
-<img src="{{ruta.user.photoURL}}" alt="Imagen" id="img-perfil" style="width:100px; height:100px;">
-<p><a href="/profile/company/{{ruta.company}}" ><button class="btn btn-primary">Home empresa</button></a>
-<h2>Perfil y gustos del conductor!</h2></p>
+<style>
+
+.mapa{
+  margin: 30px 0;
+  border-radius: 15px;
+  width: 70%;
+  height: 500px;
+}
+
+.fotoPerfil img{
+  margin: 50px 0;
+  border: solid 1px black;
+  width: 200px;
+  height: 200px;
+  border-radius: 150px;
+  
+}
+
+.papa{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+#section2{
+  width: 100%;
+  padding: 30px;
+  background-color: #CCD7E4;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cart{
+  width: 70vw;
+  margin-left: 300px;
+
+}
+
+.container{
+  margin: 20 0 ;
+}
+
+
+
+</style>
+
+<section id="section1" > 
+  <div class="papa" >
+
+  <h2>Detalle del viaje!</h2>
+  <h3>{{ruta.user.username}}</h3>
+   <div class="fotoPerfil" > <img src="{{ruta.user.photoURL}}" alt="Imagen" id="img-perfil" style="width:100px; height:100px;"> </div> 
+  <p><a href="/profile/company/{{ruta.company}}" ><button class="btn btn-primary">Home empresa</button></a>  
+    
+  </div>
+
+</section>
+<div id="section2" >
+  <div class="cart" >
+    <h2>Perfil y gustos del conductor!</h2></p>
   <p>Nombre:{{ruta.user.completeName}}</p>
   <p>Edad: {{ruta.user.age}} Años</p>
   <p>Gusto musical: {{ruta.user.preferences.music}}</p>
   <p>¿Tienes permitido fumar?: {{ruta.user.preferences.smoke}}</p>
   <p>Descripción: {{ruta.user.preferences.descripcion}}</p>
-<h3>Checa el info de la Ruta!</h3>
 
-<div style="width:80%; height:400px;" id="map"></div>
+  </div>
+</div>
 
-{{#if user2}}
-<form action='/profile/route/detail/{{ruta._id}}' method="POST">
-<input type="submit" value="Unete al viaje">
-</form>
-{{/if}}
+
+  <div class="container">
+    <center>
+      <h3>Checa el info de la Ruta!</h3>
+    <div class="mapa" id="map"></div>
+    {{#if user2}}
+    <form action='/profile/route/detail/{{ruta._id}}' method="POST">
+    <input type="submit" value="Unete al viaje  "  class="btn btn-primary">
+    </form>
+    {{/if}}
+    </center>
+  </div>
+
+
+
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIstIL_VA1Z_tPaYLKg2CvMG1sz6V0ywY"></script>
 <script>

@@ -71,7 +71,8 @@ router.get('/user/editar/:id',(req,res,next)=>{
   const{id} = req.params
   User.findById(id)
   .then(user=>{
-    res.render('profile/editar',user)
+    user2 = req.user
+    res.render('profile/editar',{user,user2})
   })
   .catch(e=>next(e))
 })
