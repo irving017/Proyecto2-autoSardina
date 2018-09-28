@@ -40,13 +40,31 @@ router.post('/route/new', async (req,res,next)=>{
     console.log(e)
   }
 })
-
 router.get('/route/delete/:id',(req,res,next)=>{
   const {id} =req.params
   console.log(req.params)
   Route.findByIdAndRemove(id)
   .then(r=>res.redirect(`/profile/user/${r.user}`))
   .catch(e=>next(e))
+})
+router.get('/route/detail/:id',(req,res,next)=>{
+  const {id} = req.params
+  Route.findById(id).populate('user')
+  .then(ruta=>{
+    if(req.user._id != ruta.user._id){
+      user2=req.user
+      res.render('routes/detail',{ruta,user2})
+    }
+    else res.render('routes/detail',{ruta})
+  })
+  .catch(e=>next(e))
+})
+router.post('/route/detail/:id',(req,res,next)=>{
+  const {id} = req.params
+  Route.findByIdAndUpdate(id,{$push:{passenger:req.user._id}})
+  .then(ruta=>{
+    res.redirect(`/profile/company/${req.user.companyId}`)
+  })
 })
 
 module.exports = router

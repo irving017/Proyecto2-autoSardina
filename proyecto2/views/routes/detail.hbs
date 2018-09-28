@@ -1,0 +1,48 @@
+<h2>{{ruta.user.username}}</h2>
+<img src="{{ruta.user.photoURL}}" alt="Imagen" id="img-perfil">
+<p>{{ruta.user.rating}}</p>
+<a href="/profile/company/{{ruta.company}}" ><button class="btn btn-primary">Home empresa</button></a>
+<h3>Info general y Gustos!</h3>
+
+<h3>Checa la Ruta!</h3>
+<div id="map"></div>
+
+{{#if user2}}
+<form action='/profile/route/detail/{{ruta._id}}' method="POST">
+<input type="submit" value="Unete al viaje">
+</form>
+{{/if}}
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIstIL_VA1Z_tPaYLKg2CvMG1sz6V0ywY"></script>
+<script>
+  const lngs={{ruta.start.coordinates.[0]}}
+  const lats={{ruta.start.coordinates.[1]}}
+  const lngd={{ruta.destiny.coordinates.[0]}}
+  const latd={{ruta.destiny.coordinates.[1]}}
+
+  function initMap() {
+    var directionsService = new google.maps.DirectionsService;
+    var directionsDisplay = new google.maps.DirectionsRenderer;
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 17,
+      center: {lat: 19.39776549999999, lng: -99.1713954}
+    });
+    directionsDisplay.setMap(map);
+    calculateAndDisplayRoute(directionsService,directionsDisplay)
+  }
+  function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+    directionsService.route({
+      origin:{lat:lats,lng:lngs},
+      destination:{lat:latd,lng:lngd},
+      travelMode: 'DRIVING'
+    }, 
+    function(response, status) {
+      if (status === 'OK') {
+      directionsDisplay.setDirections(response);
+      } else {
+      window.alert('Directions request failed due to ' + status);
+      }
+    });
+  }
+  initMap()  
+</script>
