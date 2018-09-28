@@ -198,7 +198,7 @@ h3{
     </div>  
     <center><div  class="mapa" id="map"></div></center>
     <div class="rutas-disponibles" >
-     <center><h3>Rutas disponibles</h3></center> 
+     <center><h3>Viajes disponibles</h3></center> 
     {{#each company.routes}}
     <div class="container">
     <div class="routeCard row rutas">
@@ -210,7 +210,7 @@ h3{
       {{this.start.address}}</p>
       <p><strong>Destino:</strong> {{this.destiny.address}}</p>
       <p><strong>Horario:</strong> {{this.time}}</p>
-      <a href="/profile/route/detail/{{this._id}}"><button class="btn btn-primary">Ver Ruta</button></a>
+      <a href="/profile/route/detail/{{this._id}}"><button class="btn btn-primary">Ver detalles del viaje</button></a>
     </div>
     </div>
     </div  >
