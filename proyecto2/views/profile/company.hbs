@@ -190,13 +190,13 @@ footer.footer {
   function initMap(lati,lngi) {
     mapa = new google.maps.Map(map, {
     center:{lat:lati,lng:lngi},
-    zoom:17
+    zoom:14
     })
     
     {{#each company.routes}}
       createMarkers({{this.start.coordinates.[1]}},{{this.start.coordinates.[0]}})
     {{/each}}
-    createMarkers(lati,lng) 
+    createMarker(lati,lng) 
     }
 
   function autoComplete(ainput){
@@ -208,11 +208,28 @@ footer.footer {
       initMap(lati,lng)
     })
   }
+  var image = {
+    url: "/img/carrito.png",
+    scaledSize:new google.maps.Size (50,50)
+  }
+    var image2 = {
+    url: "/img/persona.png",
+    scaledSize:new google.maps.Size (50,50)
+  }
+  function createMarker(x,y){
+    let markere = new google.maps.Marker({
+      position:{lat:x, lng:y},
+      map:mapa,
+      title:"{{user.username}}",
+      icon:image2
+    })
+  }
   function createMarkers(x,y){
     let markere = new google.maps.Marker({
       position:{lat:x, lng:y},
       map:mapa,
-      title:"{{user.username}}"
+      title:"{{user.username}}",
+      icon:image
     })
   }
   initMap(lati,lng)

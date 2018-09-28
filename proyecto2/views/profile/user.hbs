@@ -2,7 +2,6 @@
 <div id="section1">
 <img src="{{photoURL}}" alt="Imagen de perfil" id="img-perfil">
 <h2>{{username}}</h2>
-<p id="rating">Rating {{rating}}</p> 
 <a href="/profile/company/{{companyId}}" ><button class="btn btn-primary">Home empresa</button></a>
 {{!-- <input max="5" type="number" name="number" id="grade">
 <button type="submit">Calificar</button> --}}
@@ -10,10 +9,12 @@
 <div id="section2">
   <h4>Info General</h4>
   <p>Nombre completo:{{completeName}}</p>
-  <p>Edad: {{Age}}</p>
+  <p>Tu Edad: {{age}}</p>
   <p>Gusto musical: {{preferences.music}}</p>
-  <p>Fumas: {{preferences.smoke}}</p>
+  <p>¿Tienes Auto?: {{car}}</p>
+  <p>¿Pueden Fumar en tu auto?: {{preferences.smoke}}</p>
   <p>Descripción: {{preferences.descripcion}}</p>
+  <a href="/profile/user/editar/{{_id}}"><button class="btn btn-primary">Editar Perfil</button></a>
 </div>
 <div id="section3">
   <h4>Rutas</h4>
@@ -35,14 +36,3 @@
   </div>
   {{/each}}
 </div>
-
-{{!-- <script>
-  let rating = document.getElementById('rating')
-  const boton = document.getElementsByTagName('button')
-  const input = document.getElementById('grade')
-
-  boton[0].addEventListener('click',()=>{
-    console.log(input.value)
-    
-  })
-</script> --}}

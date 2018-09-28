@@ -67,4 +67,26 @@ router.post('/route/detail/:id',(req,res,next)=>{
   })
 })
 
+router.get('/user/editar/:id',(req,res,next)=>{
+  const{id} = req.params
+  User.findById(id)
+  .then(user=>{
+    res.render('profile/editar',user)
+  })
+  .catch(e=>next(e))
+})
+
+router.post('/user/editar/:id',uploadCloud.single('image'),(req,res,next)=>{
+  const {id}=req.params
+  if(req.file)req.body['photoURL']=req.file.url
+  User.findById(id)
+  .then(user=>{
+    User.findOneAndUpdate(req.user.username,{$set:req.body})
+    .then(user=>{
+      res.redirect(`/profile/user/${user._id}`)
+    })
+    .catch(e=next(e))
+  })
+})
+
 module.exports = router

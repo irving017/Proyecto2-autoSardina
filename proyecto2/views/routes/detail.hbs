@@ -1,10 +1,15 @@
-<h2>{{ruta.user.username}}</h2>
-<img src="{{ruta.user.photoURL}}" alt="Imagen" id="img-perfil">
-<p>{{ruta.user.rating}}</p>
-<a href="/profile/company/{{ruta.company}}" ><button class="btn btn-primary">Home empresa</button></a>
-<h3>Info general y Gustos!</h3>
+<h2>Detalle del viaje!</h2>
+<h3>{{ruta.user.username}}</h3>
+<img src="{{ruta.user.photoURL}}" alt="Imagen" id="img-perfil" style="width:100px; height:100px;">
+<p><a href="/profile/company/{{ruta.company}}" ><button class="btn btn-primary">Home empresa</button></a>
+<h2>Perfil y gustos del conductor!</h2></p>
+  <p>Nombre:{{ruta.user.completeName}}</p>
+  <p>Edad: {{ruta.user.age}} Años</p>
+  <p>Gusto musical: {{ruta.user.preferences.music}}</p>
+  <p>¿Tienes permitido fumar?: {{ruta.user.preferences.smoke}}</p>
+  <p>Descripción: {{ruta.user.preferences.descripcion}}</p>
+<h3>Checa el info de la Ruta!</h3>
 
-<h3>Checa la Ruta!</h3>
 <div style="width:80%; height:400px;" id="map"></div>
 
 {{#if user2}}
