@@ -1,23 +1,171 @@
+<style>
+  /*!
+ * Start Bootstrap - Landing Page v5.0.0 (https://startbootstrap.com/template-overviews/landing-page)
+ * Copyright 2013-2018 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-landing-page/blob/master/LICENSE)
+ */
+
+body {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+
+header.masthead {
+  position: relative;
+  background-color: #343a40;
+  background: url("../img/bg-masthead.jpg") no-repeat center center;
+  background-size: cover;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+header.masthead .overlay {
+  position: absolute;
+  background-color: #212529;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+}
+
+header.masthead h1 {
+  font-size: 2rem;
+}
+
+@media (min-width: 768px) {
+  header.masthead {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+  }
+  header.masthead h1 {
+    font-size: 3rem;
+  }
+}
+
+.showcase .showcase-text {
+  padding: 3rem;
+}
+
+.showcase .showcase-img {
+  min-height: 30rem;
+  background-size: cover;
+}
+
+@media (min-width: 768px) {
+  .showcase .showcase-text {
+    padding: 7rem;
+  }
+}
+
+.features-icons {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.features-icons .features-icons-item {
+  max-width: 20rem;
+}
+
+.features-icons .features-icons-item .features-icons-icon {
+  height: 7rem;
+}
+
+.features-icons .features-icons-item .features-icons-icon i {
+  font-size: 4.5rem;
+}
+
+.features-icons .features-icons-item:hover .features-icons-icon i {
+  font-size: 5rem;
+}
+
+.testimonials {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.testimonials .testimonial-item {
+  max-width: 18rem;
+}
+
+.testimonials .testimonial-item img {
+  max-width: 12rem;
+  -webkit-box-shadow: 0px 5px 5px 0px #adb5bd;
+  box-shadow: 0px 5px 5px 0px #adb5bd;
+}
+
+.call-to-action {
+  position: relative;
+  background-color: #343a40;
+  background: url("../img/bg-masthead.jpg") no-repeat center center;
+  background-size: cover;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.call-to-action .overlay {
+  position: absolute;
+  background-color: #212529;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+}
+
+footer.footer {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+}
+
+
+.empresa{
+  font-size: 70px;
+  text-align: center;
+}
+
+.perfil{
+ 
+ text-decoration: none;
+
+}
+
+.direccion{
+  text-align: center;
+}
+
+</style>
+
+
+
 <body>
   <section class="body" > 
-    <h2>{{user.companyName}}</h2>
-    <p><a href="/profile/user/{{user._id}}">Usuario</a></p>
+    <h2 class="empresa" >{{user.companyName}}</h2>
     <div class="formulario-company" >
-      <p>
-      Dirección:
+      <p class="direccion">
+      ¿Cual es tu meta en la vida?:
+      <br>
       <input type="text" name="address" id="address">
-      Horario: 
-      <input type="time" name="horario" id="horario">
         </p>
     </div>
-    <div id="map"></div>
+    <div class="col-md-12 center-block rounded  " style="widht: 80%; height:600px;" id="map"></div>
     <div class="rutas-disponibles" >
     <h3>Rutas disponibles</h3>
     {{#each company.routes}}
     <div class="container">
     <div class="routeCard row">
       <div class="col-3">
-        <img style="width:100%;" src="http://vallartaopina.net/wp-content/uploads/2017/11/MAPS.jpg" alt="imagen">
+        <img style="width:80%;" src="http://vallartaopina.net/wp-content/uploads/2017/11/MAPS.jpg" alt="imagen">
     </div>
     <div class="col-9">
       <p><strong>Salida:</strong> 
