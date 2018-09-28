@@ -71,22 +71,20 @@ router.get('/user/editar/:id',(req,res,next)=>{
   const{id} = req.params
   User.findById(id)
   .then(user=>{
+    console.log(req.user)
     res.render('profile/editar',user)
   })
   .catch(e=>next(e))
 })
 
 router.post('/user/editar/:id',uploadCloud.single('image'),(req,res,next)=>{
-  const {id}=req.params
+  const {id}=req.user._id
   if(req.file)req.body['photoURL']=req.file.url
-  User.findById(id)
-  .then(user=>{
-    User.findOneAndUpdate(req.user.username,{$set:req.body})
+    User.findOneAndUpdate({username:req.user.username},{$set:req.body})
     .then(user=>{
+      console.log(user)
       res.redirect(`/profile/user/${user._id}`)
     })
-    .catch(e=next(e))
   })
-})
 
 module.exports = router
