@@ -40,6 +40,19 @@ font-size: 30px;
 
 }
 
+.chiquito{
+  margin: 30px 15vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 70vw;
+}
+
+.chiquito h4{
+  margin: 0 5vw; 
+}
+
+
 </style>
 
 
@@ -70,8 +83,10 @@ font-size: 30px;
   <a href="/profile/user/editar/{{_id}}"><button class="btn btn-primary">Editar Perfil</button></a>
 </div>
 <div id="section3">
-   <center><h4>Tus viajes</h4></center>
+  <div class="chiquito" >
+    <center><h4>Tus viajes</h4></center>
   <a href="/profile/route/new"><button class="btn btn-primary">Crear una ruta</button></a>
+  </div>
   {{#each routes}}
   <div class="container">
     <div class="routeCard row">

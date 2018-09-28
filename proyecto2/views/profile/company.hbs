@@ -142,6 +142,7 @@ footer.footer {
 
 .direccion{
   text-align: center;
+  font-size: 24px;
 }
 
 .mapa{
@@ -162,6 +163,24 @@ h3{
   font-size: 50px;
 }
 
+.formulario-company{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 70%;
+  margin: 30px 15vw;
+}
+
+
+.formulario-company p{
+  font-size: 24px;
+  margin: 0 3px;
+
+}
+
+.formulario-company p:nth-child(1) {
+  font-weight: bolder;
+}
 
 </style>
 
@@ -169,10 +188,11 @@ h3{
 
 <body>
   <section class="body" > 
-    <h2 class="empresa" >{{user.companyName}}</h2>
+   
     <div class="formulario-company" >
+      <p class="empresa" >{{user.companyName}} |</p>
       <p class="direccion">
-      ¿Cual es tu meta en la vida?
+         Punto de partida:
       <input type="text" name="address" id="address">
         </p>
     </div>  
