@@ -28,22 +28,22 @@
 <h2>Personaliza tu perfil!!!</h2>
 
 
-<form id="section2" action="/profile/user/editar/{{user2._id}}" method="POST" enctype="multipart/form-data">
+<form id="section2" action="/profile/user/editar/{{_id}}" method="POST" enctype="multipart/form-data">
   <div class="contenedor">
   <p>
     Nombre de Usuario:
-    <input type="text" name="username" value="{{user2.username}}">
+    <input type="text" name="username" value="{{username}}">
   </p>
   <p>
     <input type="file" name="image">
   </p>
   <p>
     Nombre Completo:
-    <input type="text" name="completeName" value="{{user2.completeName}}">
+    <input type="text" name="completeName" value="{{completeName}}">
   </p>
   <p>
     Edad:
-    <input type="number" name="age" value="{{user2.age}}">
+    <input type="number" name="age" value="{{age}}">
   </p>
   <p>
     ¿Tienes auto?:
@@ -54,7 +54,7 @@
   </p>
   <p>
     ¿Que música te gusta?
-    <input type="text" name="preferences[music]" value="{{user2.preferences.music}}">
+    <input type="text" name="preferences[music]" value="{{preferences.music}}">
   </p>
   <p>
     ¿Se puede fumar en tu auto?:

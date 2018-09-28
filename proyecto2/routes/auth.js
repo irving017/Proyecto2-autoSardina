@@ -18,8 +18,9 @@ router.post('/signup/users',(req,res,next)=>{
   Company.findOne({companyName:req.body.companyName})
   .then(company=>{
     x.forEach(element => {
+      let username = element[0]+element[1]+element[2]+element[3]
       let contraseña = element[0]+element[1]+element[2]+(Math.floor(Math.random()*1000))
-      User.register({email:element,companyName:company.companyName,companyId:company._id},contraseña)
+      User.register({email:element,companyName:company.companyName,companyId:company._id,username:username},contraseña)
       .then(user =>{
         Company.findByIdAndUpdate(company._id,{$push:{users:user._id}})
         .then(company=>console.log(company))
