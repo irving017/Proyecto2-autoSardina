@@ -53,12 +53,19 @@ router.post('/signup/users',(req,res,next)=>{
 //   .catch(e=>next(e))
 // })
 
+router.get('/logout',(req, res, next)=>{
+  req.logOut()
+  req.app.locals.loggeduser = null
+  res.redirect('/login')
+})
+
 router.get('/login',(req,res,next)=>{
   res.render('auth/login')
 })
 
 router.post('/login',passport.authenticate('local'),(req,res,next)=>{
   //console.log(req.user)
+  req.app.locals.loggeduser = req.user
   res.redirect(`/profile/company/${req.user.companyId}`)
 })
 

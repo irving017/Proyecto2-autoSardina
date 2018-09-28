@@ -1,6 +1,47 @@
 
-<h2>Registra tu viaje!</h2>
-<form action="/profile/route/new" method="POST">
+<style>
+
+
+
+.papa{
+ width: 100%;
+  padding: 30px;
+  background-color: #CCD7E4;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+.cart{
+  width: 70vw;
+  margin-left: 300px;
+
+
+}
+
+.cart input{
+  border-radius:5px; 
+}
+
+.mapa{
+  margin: 30px 0;
+  border-radius: 15px;
+}
+
+h2{
+  margin: 20px 0;
+}
+
+.papa2 input {
+  border-radius: 5px;
+}
+
+</style>
+
+
+ <center><h2>Registra tu viaje!</h2>
+ <div class="papa2" >
+    <form action="/profile/route/new" method="POST">
 <p>
 Salida:
 <input type="text" name="start[address]" id="start">
@@ -11,7 +52,11 @@ Destino:
 <input type="text" name="destiny[coordinates][1]" id="latd" hidden="true">
 <input type="text" name="destiny[coordinates][0]" id="lngd" hidden="true">
 </p> 
- <center><div style="width:80%; height:300px;" id="map"></div></center> 
+</center> 
+ <center><div class="mapa" style="width:80%; height:300px;" id="map"></div></center> 
+ <div class="papa" >
+   
+  <div class="cart" >
   <p>
     Horario:
     <input type="time" name="time" id="horario">
@@ -24,8 +69,17 @@ Destino:
     Tiempo de espera maximo(min):
     <input min='0' max="10" type="number" name="TE" id="TE">
   </p>
-  <input type="submit"3 value="Registrar">
+  <input  class="btn btn-primary" type="submit" value="Registrar">
+  </div>
+
+</div>
 </form>
+ </div>
+ 
+
+
+
+
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIstIL_VA1Z_tPaYLKg2CvMG1sz6V0ywY&libraries=places"></script>
 <script>

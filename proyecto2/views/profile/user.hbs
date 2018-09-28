@@ -1,22 +1,77 @@
 
-<div id="section1">
-<img src="{{photoURL}}" alt="Imagen de perfil" id="img-perfil">
-<h2>{{username}}</h2>
-<p id="rating">Rating {{rating}}</p> 
-<a href="/profile/company/{{companyId}}" ><button class="btn btn-primary">Home empresa</button></a>
+<style>
+
+.fotoPerfil img{
+  margin: 50px 0;
+  border: solid 1px black;
+  width: 200px;
+  height: 200px;
+  border-radius: 150px;
+  
+}
+
+.papa{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+#section2{
+  width: 100%;
+  padding: 30px;
+  background-color: #CCD7E4;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cart{
+  width: 70vw;
+  margin-left: 300px;
+
+}
+
+h4{
+
+font-size: 30px;
+
+
+}
+
+</style>
+
+
+
+<section id="section1">
+  <div class="papa" >
+    
+    <div class="fotoPerfil" ><img src="{{photoURL}}" alt="Imagen de perfil" id="img-perfil"></div>
+  
+   <h2>{{username}}</h2>
+
+   
+  </div>
+   
+
+
 {{!-- <input max="5" type="number" name="number" id="grade">
 <button type="submit">Calificar</button> --}}
-</div>
+</section>
 <div id="section2">
+  <div class="cart" >
   <h4>Info General</h4>
+  <br>
   <p>Nombre completo:{{completeName}}</p>
   <p>Edad: {{Age}}</p>
   <p>Gusto musical: {{preferences.music}}</p>
   <p>Fumas: {{preferences.smoke}}</p>
   <p>Descripción: {{preferences.descripcion}}</p>
+  </div>
 </div>
 <div id="section3">
-  <h4>Rutas</h4>
+   <center><h4>Tus viajes</h4></center>
   <a href="/profile/route/new"><button class="btn btn-primary">Crear una ruta</button></a>
   {{#each routes}}
   <div class="container">

@@ -30,10 +30,11 @@
       
         <a class="navbar-brand" href="/">Auto sardina</a>
             <nav>
-            {{#if user}}
+            {{#if loggeduser}}
+            <a href="/profile/company/{{companyId}}" ><button class="btn btn-primary">Home empresa</button></a>
             <a class="btn btn-primary"  href="/profile/user/{{user._id}}">Perfil</a>
             <a class="btn btn-primary"  href="/profile/route/new">Nueva ruta</a>
-            <a class="btn btn-primary"  href="/">Salir</a>
+            <a class="btn btn-primary"  href="/logout">Salir</a>
             {{else}}
             <a class="btn btn-primary"  href="/login">Inicia Sesión</a>
             {{/if}}

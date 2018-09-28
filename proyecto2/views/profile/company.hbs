@@ -144,6 +144,25 @@ footer.footer {
   text-align: center;
 }
 
+.mapa{
+  margin: 30px 0;
+  border-radius: 15px;
+  width: 70%;
+  height: 500px;
+}
+
+.rutas{
+  border-bottom:solid 1px gray; 
+  padding: 30px 0;
+   margin: 20px 0;
+
+}
+
+h3{
+  font-size: 50px;
+}
+
+
 </style>
 
 
@@ -153,17 +172,17 @@ footer.footer {
     <h2 class="empresa" >{{user.companyName}}</h2>
     <div class="formulario-company" >
       <p class="direccion">
-      ¿Cual es tu meta en la vida?:
-      <br>
+      ¿Cual es tu meta en la vida?
+      
       <input type="text" name="address" id="address">
         </p>
-    </div>
-    <div class="col-md-12 center-block rounded  " style="widht: 80%; height:600px;" id="map"></div>
+    </div>  
+    <center><div  class="mapa" id="map"></div></center>
     <div class="rutas-disponibles" >
-    <h3>Rutas disponibles</h3>
+     <center><h3>Rutas disponibles</h3></center> 
     {{#each company.routes}}
     <div class="container">
-    <div class="routeCard row">
+    <div class="routeCard row rutas">
       <div class="col-3">
         <img style="width:80%;" src="http://vallartaopina.net/wp-content/uploads/2017/11/MAPS.jpg" alt="imagen">
     </div>
@@ -175,7 +194,7 @@ footer.footer {
       <a href=""><button class="btn btn-primary">Ver Ruta</button></a>
     </div>
     </div>
-    </div>
+    </div  >
     {{/each}}
     </div>
     </section>
